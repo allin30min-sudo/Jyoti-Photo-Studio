@@ -4,7 +4,9 @@
    =================================== */
 
 /* ===== 3D Setup ===== */
-body {
+/* ===== 3D Setup ===== */
+/* NOTE: Removed perspective from body to prevent breaking position:fixed elements like popups */
+.perspective-container {
     perspective: 1000px;
     transform-style: preserve-3d;
 }
