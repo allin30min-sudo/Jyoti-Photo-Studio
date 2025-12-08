@@ -1,0 +1,572 @@
+/* ===================================
+   3D CAMERA ANIMATIONS & EFFECTS
+   Advanced Camera-Style 3D Animations
+   =================================== */
+
+/* ===== 3D Setup ===== */
+body {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* ===== 3D Camera Rotation Effect ===== */
+@keyframes cameraRotate {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+
+    25% {
+        transform: rotateY(5deg) rotateX(2deg);
+    }
+
+    50% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+
+    75% {
+        transform: rotateY(-5deg) rotateX(-2deg);
+    }
+
+    100% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+}
+
+/* ===== Lens Zoom Effect ===== */
+@keyframes lensZoom {
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0px);
+    }
+
+    50% {
+        transform: scale(1.05) translateZ(20px);
+    }
+}
+
+/* ===== 3D Photo Frame Tilt ===== */
+@keyframes photoFrameTilt {
+
+    0%,
+    100% {
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+
+    50% {
+        transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+    }
+}
+
+/* ===== Camera Aperture Opening ===== */
+@keyframes apertureOpen {
+    0% {
+        clip-path: polygon(50% 20%, 55% 25%, 60% 30%, 65% 35%,
+                60% 70%, 55% 75%, 50% 80%, 45% 75%,
+                40% 70%, 35% 35%, 40% 30%, 45% 25%);
+        opacity: 0.3;
+    }
+
+    100% {
+        clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%,
+                0% 100%, 0% 0%, 50% 0%, 50% 0%);
+        opacity: 1;
+    }
+}
+
+/* ===== 3D Card Flip Effect ===== */
+@keyframes cardFlip3D {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+/* ===== Depth Parallax 3D ===== */
+@keyframes depth3D {
+
+    0%,
+    100% {
+        transform: translateZ(0px) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateZ(50px) rotateY(5deg);
+    }
+}
+
+/* ===== Camera Shake Effect ===== */
+@keyframes cameraShake {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate(-2px, -2px) rotate(-0.5deg);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate(2px, 2px) rotate(0.5deg);
+    }
+}
+
+/* ===== Focus Pull Effect (Blur to Sharp) ===== */
+@keyframes focusPull {
+    0% {
+        filter: blur(10px);
+        transform: scale(1.1);
+    }
+
+    100% {
+        filter: blur(0px);
+        transform: scale(1);
+    }
+}
+
+/* ===== 3D Carousel Rotation ===== */
+@keyframes carousel3D {
+    0% {
+        transform: perspective(1200px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(1200px) rotateY(360deg);
+    }
+}
+
+/* ===== Lens Flare Sweep 3D ===== */
+@keyframes lensFlare3D {
+    0% {
+        transform: translateX(-200%) translateZ(0px) rotate(-45deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0%) translateZ(30px) rotate(-45deg);
+    }
+
+    100% {
+        transform: translateX(200%) translateZ(0px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* ===== Service Cards 3D Hover ===== */
+.service-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateZ(20px);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(201, 169, 97, 0.3);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%);
+    transform: translateZ(1px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* ===== 3D Gallery Images ===== */
+.gallery-item {
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-item:hover {
+    transform: perspective(1000px) rotateY(8deg) rotateX(-4deg) translateZ(30px) scale(1.05);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 50px rgba(201, 169, 97, 0.4);
+    z-index: 10;
+}
+
+.gallery-item img {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* ===== Highlight Cards 3D Effect ===== */
+.highlight-card {
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.highlight-card:hover {
+    transform: perspective(800px) rotateY(-10deg) rotateX(5deg) translateZ(25px);
+    box-shadow:
+        -20px 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(201, 169, 97, 0.3);
+}
+
+.highlight-icon {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+    transform: translateZ(40px) rotateZ(360deg);
+}
+
+/* ===== Feature Items 3D ===== */
+.feature-item {
+    transform-style: preserve-3d;
+    transition: all 0.4s ease;
+}
+
+.feature-item:hover {
+    transform: perspective(600px) translateZ(15px) rotateX(2deg);
+}
+
+.feature-icon {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feature-item:hover .feature-icon {
+    transform: translateZ(30px) rotateY(360deg);
+}
+
+/* ===== Testimonial Cards 3D ===== */
+.testimonial-card {
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.testimonial-card:hover {
+    transform: perspective(1000px) rotateX(-5deg) translateZ(20px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(201, 169, 97, 0.2);
+}
+
+.author-image {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.testimonial-card:hover .author-image {
+    transform: translateZ(40px) scale(1.1);
+}
+
+/* ===== Navigation 3D Effect ===== */
+.nav-link {
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: perspective(500px) translateZ(10px);
+}
+
+/* ===== Button 3D Press Effect ===== */
+.btn {
+    transform-style: preserve-3d;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: translateZ(-10px);
+    filter: brightness(0.7);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: perspective(500px) translateZ(15px);
+}
+
+.btn:active {
+    transform: perspective(500px) translateZ(5px);
+}
+
+/* ===== Hero Section 3D Depth ===== */
+.hero-content h1 {
+    transform-style: preserve-3d;
+    animation: depth3D 8s ease-in-out infinite;
+}
+
+.hero-content p {
+    transform-style: preserve-3d;
+    animation: depth3D 10s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/* ===== Camera Lens Border Effect ===== */
+.camera-lens-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.camera-lens-border::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg,
+            transparent 0deg,
+            rgba(201, 169, 97, 0.4) 45deg,
+            transparent 90deg,
+            transparent 270deg,
+            rgba(201, 169, 97, 0.4) 315deg,
+            transparent 360deg);
+    animation: cameraRotate 4s linear infinite;
+    pointer-events: none;
+}
+
+/* ===== Bokeh 3D Effect ===== */
+.bokeh {
+    transform-style: preserve-3d;
+    animation: bokeh3D 15s ease-in-out infinite;
+}
+
+@keyframes bokeh3D {
+
+    0%,
+    100% {
+        transform: translate(0, 0) translateZ(0px) scale(1);
+    }
+
+    25% {
+        transform: translate(-20px, -30px) translateZ(30px) scale(1.2);
+    }
+
+    50% {
+        transform: translate(20px, 20px) translateZ(-20px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(-15px, 25px) translateZ(25px) scale(1.1);
+    }
+}
+
+.bokeh-1 {
+    animation-delay: 0s;
+}
+
+.bokeh-2 {
+    animation-delay: 2s;
+}
+
+.bokeh-3 {
+    animation-delay: 4s;
+}
+
+.bokeh-4 {
+    animation-delay: 6s;
+}
+
+.bokeh-5 {
+    animation-delay: 8s;
+}
+
+/* ===== Section Header 3D Effect ===== */
+.section-title {
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.section-header:hover .section-title {
+    transform: perspective(800px) rotateX(10deg) translateZ(20px);
+    text-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(201, 169, 97, 0.3);
+}
+
+/* ===== Logo 3D Rotation ===== */
+.logo {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo:hover {
+    transform: perspective(500px) rotateY(360deg) translateZ(10px);
+}
+
+.logo i {
+    display: inline-block;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.logo:hover i {
+    transform: translateZ(20px) rotateY(360deg);
+}
+
+/* ===== Footer 3D Links ===== */
+.footer-links a,
+.social-link {
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover,
+.social-link:hover {
+    transform: perspective(400px) translateZ(15px) rotateX(-5deg);
+}
+
+/* ===== 3D Photo Grid Effect ===== */
+.services-grid,
+.highlights-grid,
+.features-grid,
+.testimonials-grid {
+    transform-style: preserve-3d;
+}
+
+/* ===== Camera Viewfinder Effect ===== */
+.viewfinder-effect {
+    position: relative;
+}
+
+.viewfinder-effect::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    pointer-events: none;
+    animation: viewfinderPulse 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes viewfinderPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.98);
+    }
+}
+
+/* ===== 3D Text Shadow Effect ===== */
+.text-3d {
+    text-shadow:
+        1px 1px 0 rgba(201, 169, 97, 0.5),
+        2px 2px 0 rgba(201, 169, 97, 0.4),
+        3px 3px 0 rgba(201, 169, 97, 0.3),
+        4px 4px 0 rgba(201, 169, 97, 0.2),
+        5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Camera Flash 3D Effect ===== */
+@keyframes flash3D {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateZ(0px);
+    }
+
+    5% {
+        opacity: 1;
+        transform: scale(1.5) translateZ(100px);
+    }
+
+    10% {
+        opacity: 0.5;
+        transform: scale(1.2) translateZ(50px);
+    }
+}
+
+.flash-effect {
+    animation: flash3D 0.5s ease-out;
+}
+
+/* ===== Scrollbar 3D Styling ===== */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-darker);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-gold));
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(201, 169, 97, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--color-gold), var(--color-primary));
+    box-shadow: 0 0 15px rgba(201, 169, 97, 0.8);
+}
+
+/* ===== Responsive 3D Adjustments ===== */
+@media screen and (max-width: 768px) {
+
+    /* Reduce 3D effects on mobile for performance */
+    .service-card:hover,
+    .gallery-item:hover,
+    .highlight-card:hover,
+    .feature-item:hover,
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .hero-content h1,
+    .hero-content p {
+        animation: none;
+    }
+}
+
+/* ===== Disable 3D for Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

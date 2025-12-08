@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Jyoti Photo Studio - Premium photography and videography services for weddings, events, films, and more. From Shaadi to Film – A to Z Photo & Video Solutions.">
+    <meta name="keywords"
+        content="wedding photography, cinematography, photo studio, video production, India, pre-wedding, events, films, reels">
+    <title>Jyoti Photo Studio - Premium Photography & Cinematography | From Shaadi to Film</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/camera-3d.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/popup.css">
+</head>
+
+<body>
+    <!-- Welcome Popup -->
+    <div class="welcome-popup" id="welcomePopup">
+        <div class="welcome-content">
+            <button class="popup-close" aria-label="Close">&times;</button>
+            <div class="welcome-icon">
+                <i class="fas fa-camera"></i>
+            </div>
+            <h2>Welcome to Jyoti Photo Studio</h2>
+            <p class="welcome-slogan">"Capturing Moments, Creating Memories"</p>
+            <p class="welcome-developer">This website is developed by <strong>Sachin Yadav</strong></p>
+            <p class="welcome-contact">For creating a similar website, please contact at:</p>
+            <p class="welcome-email"><i class="fas fa-envelope"></i> fogofdelhi@gmail.com</p>
+            <div class="welcome-progress"></div>
+        </div>
+    </div>
+
+    <!-- Bokeh Background Effect -->
+    <div class="bokeh-container">
+        <div class="bokeh bokeh-1"></div>
+        <div class="bokeh bokeh-2"></div>
+        <div class="bokeh bokeh-3"></div>
+        <div class="bokeh bokeh-4"></div>
+        <div class="bokeh bokeh-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <span class="logo-text">Jyoti <span class="logo-highlight">Photo Studio</span></span>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="pages/about.html" class="nav-link">About</a></li>
+                <li><a href="pages/services.html" class="nav-link">Services</a></li>
+                <li><a href="pages/gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="pages/packages.html" class="nav-link">Packages</a></li>
+                <li><a href="pages/testimonials.html" class="nav-link">Testimonials</a></li>
+                <li><a href="pages/blog.html" class="nav-link">Blog</a></li>
+                <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="tel:+919876543210" class="btn-icon" title="Call Now">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://wa.me/919876543210?text=Hi, I want to book Jyoti Photo Studio" target="_blank"
+                    class="btn-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="pages/contact.html" class="btn btn-primary">Book Now</a>
+            </div>
+
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-slider">
+                <div class="hero-slide active"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1920&q=80')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80')">
+                </div>
+            </div>
+        </div>
+
+        <div class="shutter-overlay"></div>
+
+        <div class="hero-content container">
+            <h1 class="hero-title animate-fade-up">Premium Photo & Film Studio For Every Occasion</h1>
+            <p class="hero-subtitle animate-fade-up delay-1">Shaadi, parties, films, reels – A to Z professional
+                photography and videography under one roof</p>
+
+            <!-- CTA Message in Hero -->
+            <div class="hero-cta-message animate-fade-up delay-2">
+                <h3>Shaadi ki date fix ho gayi?<br>Ab booking bhi fix karo!</h3>
+                <p class="hero-cta-by">On JYOTI PHOTO STUDIO By Subodh Mandal</p>
+                <p class="hero-cta-subtitle">Don't miss out on capturing your special moments with professional
+                    excellence</p>
+            </div>
+
+            <div class="hero-actions animate-fade-up delay-3">
+                <a href="pages/contact.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check"></i> Book Your Date
+                </a>
+                <a href="pages/gallery.html" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-images"></i> View Our Work
+                </a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Quick Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card" data-aos="fade-up">
+                    <div class="highlight-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Wedding & Pre-wedding Experts</h3>
+                    <p>Capturing your special moments with cinematic perfection</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>4K Cinematic Videography & Drone</h3>
+                    <p>Professional equipment for stunning aerial and ground shots</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Creative Reels & Short Films</h3>
+                    <p>Instagram reels, YouTube content, and artistic storytelling</p>
+                </div>
+
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3>A to Z Event Coverage</h3>
+                    <p>Complete event solutions from photography to LED walls</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner (Top Section) -->
+    <section class="cta-banner">
+        <div class="container text-center">
+            <h2 class="cta-banner-title">
+                Shaadi ki date fix ho gayi?<br>
+                Ab booking bhi fix karo!<br>
+                <span class="cta-banner-by">On JYOTI PHOTO STUDIO By Subodh Mandal</span>
+            </h2>
+            <p class="cta-banner-subtitle">Don't miss out on capturing your special moments with professional excellence
+            </p>
+            <div class="cta-banner-buttons">
+                <a href="pages/contact.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check"></i> Check Availability
+                </a>
+                <a href="https://wa.me/919876543210?text=Hi, I want to book Jyoti Photo Studio" target="_blank"
+                    class="btn btn-secondary btn-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-preview section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">What We Offer</span>
+                <h2 class="section-title">Our Services</h2>
+                <div class="lens-flare"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>Wedding & Pre-wedding</h3>
+                            <p>Complete coverage from engagement to reception</p>
+                            <a href="pages/services.html#wedding" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>Parties & Events</h3>
+                            <p>Birthdays, anniversaries, and corporate events</p>
+                            <a href="pages/services.html#events" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>Films, Music Videos & Reels</h3>
+                            <p>Creative content production and storytelling</p>
+                            <a href="pages/services.html#films" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>Corporate & Product Shoots</h3>
+                            <p>Professional branding and commercial photography</p>
+                            <a href="pages/services.html#corporate" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>Kids, Maternity & Family</h3>
+                            <p>Beautiful memories captured with care</p>
+                            <a href="pages/services.html#family" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="service-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80')">
+                        <div class="service-overlay">
+                            <h3>A to Z Event Solutions</h3>
+                            <p>LED walls, live streaming, and complete setup</p>
+                            <a href="pages/services.html#solutions" class="btn btn-outline-light btn-sm">Learn More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Gallery -->
+    <section class="featured-gallery section-padding bg-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Our Portfolio</span>
+                <h2 class="section-title">Featured Work</h2>
+                <div class="lens-flare"></div>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="portraits">Portraits</button>
+                <button class="filter-btn" data-filter="films">Films</button>
+            </div>
+
+            <div class="gallery-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide gallery-item" data-category="wedding">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
+                            alt="Wedding Photography">
+                    </div>
+                    <div class="swiper-slide gallery-item" data-category="wedding">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80"
+                            alt="Pre-wedding Shoot">
+                    </div>
+                    <div class="swiper-slide gallery-item" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80"
+                            alt="Event Photography">
+                    </div>
+                    <div class="swiper-slide gallery-item" data-category="portraits">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80"
+                            alt="Portrait Photography">
+                    </div>
+                    <div class="swiper-slide gallery-item" data-category="films">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80"
+                            alt="Film Production">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div class="text-center mt-40">
+                <a href="pages/gallery.html" class="btn btn-primary">View Full Gallery <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Why Us</span>
+                <h2 class="section-title">Why Choose Jyoti Photo Studio</h2>
+                <div class="lens-flare"></div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-right">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>End-to-End Service</h3>
+                        <p>From shoot to album delivery, we handle everything</p>
+                    </div>
+                </div>
+
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Premium Equipment</h3>
+                        <p>High-end cameras, lenses, lights, and drone technology</p>
+                    </div>
+                </div>
+
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Experienced Team</h3>
+                        <p>Skilled professionals in wedding and film production</p>
+                    </div>
+                </div>
+
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>On-Time Delivery</h3>
+                        <p>Professional editing with timely project completion</p>
+                    </div>
+                </div>
+
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Creative Excellence</h3>
+                        <p>Artistic vision and innovative storytelling approach</p>
+                    </div>
+                </div>
+
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Custom Packages</h3>
+                        <p>Flexible pricing options for every budget</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Preview -->
+    <section class="testimonials-preview section-padding bg-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Client Reviews</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="lens-flare"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Jyoti Photo Studio made our wedding day absolutely magical! The team
+                        was professional, creative, and captured every moment perfectly. The final album exceeded our
+                        expectations!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('https://i.pravatar.cc/100?img=1')">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya & Rahul Sharma</h4>
+                            <span>Wedding Photography</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Outstanding service for our corporate event! The quality of photos and
+                        videos was exceptional, and they delivered everything on time. Highly recommended for
+                        professional work."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('https://i.pravatar.cc/100?img=14')">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Patel</h4>
+                            <span>Corporate Event</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing experience with the pre-wedding shoot! The team's creativity
+                        and professionalism were top-notch. They made us feel comfortable and the results were
+                        stunning!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('https://i.pravatar.cc/100?img=5')">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sneha & Arjun</h4>
+                            <span>Pre-wedding Shoot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-40">
+                <a href="pages/testimonials.html" class="btn btn-primary">Read More Reviews <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg"
+            style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80')">
+        </div>
+        <div class="container text-center">
+            <h2 class="cta-title" data-aos="fade-up">Shaadi ki date fix ho gayi?<br>Ab booking bhi fix karo!<br><span
+                    class="cta-by">On JYOTI PHOTO STUDIO By Subodh Mandal</span></h2>
+            <p class="cta-subtitle" data-aos="fade-up" data-aos-delay="100">Don't miss out on capturing your special
+                moments with professional excellence</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="pages/contact.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check"></i> Check Availability
+                </a>
+                <a href="https://wa.me/919876543210?text=Hi, I want to book Jyoti Photo Studio" target="_blank"
+                    class="btn btn-secondary btn-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-camera"></i>
+                        <span>Jyoti <span class="logo-highlight">Photo Studio</span></span>
+                    </div>
+                    <p class="footer-desc">From Shaadi to Film – A to Z Photo & Video Solutions. Professional
+                        photography and videography services for all occasions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/919876543210" class="social-link" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/packages.html">Packages</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="pages/services.html#wedding">Wedding Photography</a></li>
+                        <li><a href="pages/services.html#events">Event Coverage</a></li>
+                        <li><a href="pages/services.html#films">Film Production</a></li>
+                        <li><a href="pages/services.html#corporate">Corporate Shoots</a></li>
+                        <li><a href="pages/services.html#family">Family Portraits</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Studio Street, Mumbai,<br>Maharashtra, India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@jyotiphotostudio.com">info@jyotiphotostudio.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Sun: 9:00 AM - 9:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jyoti Photo Studio. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                        href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="scripts/popup.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/camera-3d.js"></script>
+</body>
+
+</html>
