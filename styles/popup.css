@@ -12,13 +12,12 @@
     -webkit-backdrop-filter: blur(15px);
 
     display: flex;
-    align-items: flex-start;
-    /* Align to top */
+    align-items: center;
+    /* Center vertically */
     justify-content: center;
     /* Horizontally center */
 
-    padding-top: 80px;
-    /* Position below navbar */
+    padding-top: 0;
 
     z-index: 10000;
     opacity: 0;
