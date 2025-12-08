@@ -4,21 +4,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Jyoti Photo Studio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Our Services - Jyoti Photo Studio</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/services.css">
+    <link rel="stylesheet" href="../styles/animations.css">
 </head>
 
 <body>
-    <div class="container" style="padding: 100px 20px; text-align: center; min-height: 80vh;">
-        <h1 style="color: var(--color-primary); margin-bottom: 2rem;">Our Services</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Full services page coming soon!</p>
-        <a href="../index.html" class="btn btn-primary"><i class="fas fa-home"></i> Back to Home</a>
+    <!-- Navbar (Simplified Version for consistency) -->
+    <nav class="navbar scanned" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <span class="logo-text">Jyoti <span class="logo-highlight">Photo Studio</span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="packages.html" class="nav-link">Packages</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:+919876543210" class="btn-icon"><i class="fas fa-phone"></i></a>
+                <a href="contact.html" class="btn btn-primary">Book Now</a>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Services Header -->
+    <section class="services-container">
+        <div class="section-header-lg" data-aos="fade-up">
+            <span class="section-label">Premium Solutions</span>
+            <h1>Our Professional Services</h1>
+            <p>Select your required services below to get a customized quote instantly.</p>
+        </div>
+
+        <!-- Interactive Grid -->
+        <div class="services-interactive-grid">
+            <!-- 1. Wedding -->
+            <div class="service-interactive-card" data-category="wedding" data-aos="fade-up">
+                <div class="card-icon"><i class="fas fa-heart"></i></div>
+                <h3>Wedding & Pre-wedding</h3>
+                <p>Cinematic coverage from Roka to Reception.</p>
+                <div class="select-indicator">Select Services</div>
+            </div>
+
+            <!-- 2. Events -->
+            <div class="service-interactive-card" data-category="events" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon"><i class="fas fa-glass-cheers"></i></div>
+                <h3>Events & Parties</h3>
+                <p>Birthdays, Anniversary & Corporate.</p>
+                <div class="select-indicator">Select Services</div>
+            </div>
+
+            <!-- 3. Films -->
+            <div class="service-interactive-card" data-category="films" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-icon"><i class="fas fa-film"></i></div>
+                <h3>Films & Reels</h3>
+                <p>Music Videos, Short Films & Content.</p>
+                <div class="select-indicator">Select Services</div>
+            </div>
+
+            <!-- 4. Commercial -->
+            <div class="service-interactive-card" data-category="commercial" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Commercial & Branding</h3>
+                <p>Product Shoots, Portfolios & Ads.</p>
+                <div class="select-indicator">Select Services</div>
+            </div>
+
+            <!-- 5. A to Z Solutions -->
+            <div class="service-interactive-card" data-category="solutions" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>A to Z Solutions</h3>
+                <p>LED Walls, Drone, Live & Setups.</p>
+                <div class="select-indicator">Select Services</div>
+            </div>
+        </div>
+
+        <!-- Panels Container -->
+        <div class="panels-container">
+
+            <!-- Wedding Panel -->
+            <div class="sub-services-panel" id="panel-wedding" data-category-label="Wedding">
+                <div class="panel-header">
+                    <h2>Wedding Services</h2>
+                </div>
+                <div class="sub-services-grid">
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Engagement/Roka Coverage"><span class="checkmark"></span><span
+                            class="service-name">Engagement/Roka Coverage</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Pre-wedding Shoot (Outdoor/Studio)"><span class="checkmark"></span><span
+                            class="service-name">Pre-wedding Shoot</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Wedding Day Candid Photography"><span class="checkmark"></span><span
+                            class="service-name">Candid Photography</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Traditional Videography"><span class="checkmark"></span><span
+                            class="service-name">Traditional Videography</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Cinematic Wedding Film"><span class="checkmark"></span><span
+                            class="service-name">Cinematic Wedding Film</span><span
+                            class="premium-badge">Premium</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Drone Cinematography"><span class="checkmark"></span><span class="service-name">Drone
+                            Cinematography</span><span class="premium-badge">Add-on</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Same Day Edit (SDE)"><span class="checkmark"></span><span class="service-name">Same
+                            Day Edit (SDE)</span><span class="premium-badge">Premium</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="360 Degree Spinning Cam"><span class="checkmark"></span><span
+                            class="service-name">360° Spinning Cam</span></label>
+                </div>
+            </div>
+
+            <!-- Events Panel -->
+            <div class="sub-services-panel" id="panel-events" data-category-label="Events">
+                <div class="panel-header">
+                    <h2>Events & Parties</h2>
+                </div>
+                <div class="sub-services-grid">
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Birthday Party Coverage"><span class="checkmark"></span><span
+                            class="service-name">Birthday Party</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Anniversary Function"><span class="checkmark"></span><span
+                            class="service-name">Anniversary Function</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Corporate Event"><span class="checkmark"></span><span class="service-name">Corporate
+                            Event</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Candid Event Photography"><span class="checkmark"></span><span
+                            class="service-name">Candid Photography</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Instant Photo Printing"><span class="checkmark"></span><span
+                            class="service-name">Instant Photo Printing</span><span
+                            class="premium-badge">Premium</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Live Streaming"><span class="checkmark"></span><span class="service-name">Live
+                            Streaming (YouTube/Insta)</span></label>
+                </div>
+            </div>
+
+            <!-- Films Panel -->
+            <div class="sub-services-panel" id="panel-films" data-category-label="Films">
+                <div class="panel-header">
+                    <h2>Films & Production</h2>
+                </div>
+                <div class="sub-services-grid">
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Music Video Production"><span class="checkmark"></span><span
+                            class="service-name">Music Video Production</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Short Film"><span class="checkmark"></span><span class="service-name">Short
+                            Film</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Instagram Reels Package"><span class="checkmark"></span><span
+                            class="service-name">Instagram Reels Package</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Scriptwriting & Storyboard"><span class="checkmark"></span><span
+                            class="service-name">Scriptwriting & Storyboard</span><span
+                            class="premium-badge">Pro</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="VFX/CGI Integration"><span class="checkmark"></span><span
+                            class="service-name">VFX/CGI Integration</span><span
+                            class="premium-badge">Premium</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Color Grading (DI)"><span class="checkmark"></span><span class="service-name">Color
+                            Grading (DI)</span></label>
+                </div>
+            </div>
+
+            <!-- Commercial Panel -->
+            <div class="sub-services-panel" id="panel-commercial" data-category-label="Commercial">
+                <div class="panel-header">
+                    <h2>Commercial & Branding</h2>
+                </div>
+                <div class="sub-services-grid">
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Product Photography"><span class="checkmark"></span><span
+                            class="service-name">Product Photography</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Model Portfolio/Fashion"><span class="checkmark"></span><span
+                            class="service-name">Model Portfolio</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Corporate Headshots"><span class="checkmark"></span><span
+                            class="service-name">Corporate Headshots</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="360 Product Spin"><span class="checkmark"></span><span class="service-name">360°
+                            Product Spin</span><span class="premium-badge">Trending</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Studio Set Design"><span class="checkmark"></span><span class="service-name">Studio
+                            Set Design</span></label>
+                </div>
+            </div>
+
+            <!-- A to Z Solutions Panel -->
+            <div class="sub-services-panel" id="panel-solutions" data-category-label="A to Z Solutions">
+                <div class="panel-header">
+                    <h2>A to Z Event Solutions</h2>
+                </div>
+                <div class="sub-services-grid">
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="LED Walls (P2/P3)"><span class="checkmark"></span><span class="service-name">LED
+                            Walls (P2/P3)</span><span class="premium-badge">Popular</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Live Streaming Setup"><span class="checkmark"></span><span class="service-name">Live
+                            Streaming Setup</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Drone (Mavic/FPV)"><span class="checkmark"></span><span class="service-name">Drone
+                            (Mavic/FPV)</span><span class="premium-badge">Pro</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Jimmy Jib Crane"><span class="checkmark"></span><span class="service-name">Jimmy Jib
+                            Crane</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Sound System & DJ"><span class="checkmark"></span><span class="service-name">Sound
+                            System & DJ</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Event Anchor/Host"><span class="checkmark"></span><span class="service-name">Event
+                            Anchor/Host</span></label>
+                    <label class="custom-checkbox-label"><input type="checkbox" class="service-checkbox"
+                            value="Decor Photography"><span class="checkmark"></span><span class="service-name">Decor
+                            Photography</span></label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Bar -->
+    <div class="booking-bar" id="booking-bar">
+        <div class="booking-content">
+            <span class="selected-count">You have selected <span id="selected-count" class="highlight-count">0</span>
+                services</span>
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="btn-book-now">Book Now &rarr;</button>
+            </div>
+        </div>
     </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="booking-modal">
+            <h3 class="modal-title">Confirm Your Selection</h3>
+            <p style="text-align:center; color:rgba(255,255,255,0.7); margin-bottom:1rem;">Review your choices before
+                submitting</p>
+
+            <div class="summary-list" id="modal-summary-list">
+                <!-- JS will populate this -->
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="btn-edit-booking">Edit Selection</button>
+                <button class="btn btn-primary" id="btn-confirm-booking">Confirm via WhatsApp <i
+                        class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/services.js"></script>
+    <!-- Re-init menu for this page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Re-run mobile menu init if main.js doesn't auto-catch it correctly due to load order
+            if (typeof initMobileMenu === 'function') initMobileMenu();
+        });
+    </script>
 </body>
 
 </html>
