@@ -1015,32 +1015,35 @@ p {
 
 /* ===== Hero CTA Message Styles (Golden & Big) ===== */
 .hero-cta-message {
-    margin-bottom: var(--spacing-lg);
-    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-sm);
     text-align: center;
 }
 
 .hero-cta-message h3 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    /* Significantly reduced from 4rem */
     color: var(--color-gold);
     font-family: var(--font-heading);
     line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.5rem;
     text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero-cta-by {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    /* Reduced from 1.5rem */
     color: var(--color-primary);
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.25rem;
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-cta-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    /* Reduced from 1.2rem */
     color: var(--color-light);
     max-width: 700px;
     margin: 0 auto;
