@@ -107,7 +107,11 @@ iframe {
 
     /* Hero Section */
     .hero {
-        height: 100svh;
+        min-height: 100svh;
+        height: auto;
+        padding-top: 80px;
+        /* Space for navbar */
+        padding-bottom: 2rem;
     }
 
     .hero-title {

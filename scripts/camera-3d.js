@@ -272,7 +272,7 @@ window.addEventListener('scroll', () => {
     const scrollDelta = scrollPosition - lastScrollPosition;
 
     // Add depth to sections based on scroll
-    document.querySelectorAll('section').forEach((section, index) => {
+    document.querySelectorAll('section:not(.hero)').forEach((section, index) => {
         const rect = section.getBoundingClientRect();
         const distanceFromCenter = rect.top + (rect.height / 2) - (window.innerHeight / 2);
         const normalizedDistance = distanceFromCenter / window.innerHeight;
