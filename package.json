@@ -1,0 +1,22 @@
+{
+    "name": "jyoti-photo-studio",
+    "version": "1.0.0",
+    "description": "Premium Photography & Cinematography Website for Jyoti Photo Studio",
+    "main": "index.html",
+    "scripts": {
+        "start": "python -m http.server 8080",
+        "serve": "npx http-server . -c-1"
+    },
+    "keywords": [
+        "photography",
+        "website",
+        "portfolio",
+        "cinematography"
+    ],
+    "author": "Subodh Mandal",
+    "license": "ISC",
+    "dependencies": {
+        "swiper": "^11.0.0"
+    },
+    "devDependencies": {}
+}

@@ -3,6 +3,20 @@
    Mobile-First Responsive Design
    =================================== */
 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ensure images don't overflow */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
 /* ===== Tablet (Portrait) - 768px and below ===== */
 @media screen and (max-width: 768px) {
 

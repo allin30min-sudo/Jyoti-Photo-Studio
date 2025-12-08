@@ -123,6 +123,9 @@ function triggerCameraZoom(element) {
 
 // ===== Focus Pull Observer =====
 function observeFocusPull() {
+    // Disable heavy focus pull animation on mobile/tablet to prevent flickering
+    if (window.innerWidth < 768) return;
+
     const focusElements = document.querySelectorAll('.service-card, .highlight-card, .feature-item');
 
     const observer = new IntersectionObserver((entries) => {
@@ -262,6 +265,9 @@ function handleOrientation(event) {
 let lastScrollPosition = 0;
 
 window.addEventListener('scroll', () => {
+    // Disable heavy 3D scroll effects on mobile/tablet
+    if (window.innerWidth < 1024) return;
+
     const scrollPosition = window.pageYOffset;
     const scrollDelta = scrollPosition - lastScrollPosition;
 
@@ -341,7 +347,8 @@ document.querySelectorAll('.btn-primary, .service-card').forEach(element => {
 
 // ===== 3D Loading Effect =====
 window.addEventListener('load', () => {
-    document.body.style.animation = 'focusPull 1.5s ease-out';
+    // Disabled body focus pull to prevent whole page flicker/glitch
+    // document.body.style.animation = 'focusPull 1.5s ease-out';
 
     // Add viewfinder effect to hero
     const hero = document.querySelector('.hero');

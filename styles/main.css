@@ -1041,3 +1041,24 @@ p {
     margin: 0 auto;
     font-weight: 500;
 }
+
+/* ===== Optimization for Touch Devices (Anti-Flicker) ===== */
+@media (hover: none) and (pointer: coarse) {
+    * {
+        /* Prevent background jitter on scroll */
+        background-attachment: scroll !important;
+    }
+
+    .hero,
+    .hero-slide {
+        /* Optimize hero section for mobile */
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    .bokeh-container {
+        /* Ensure bokeh doesn't cause forced reflows */
+        will-change: transform;
+        transform: translateZ(0);
+    }
+}

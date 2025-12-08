@@ -49,6 +49,14 @@ class ScrollAnimationController {
 
     update() {
         this.ticking = false;
+
+        // Disable heavy scroll animations on mobile for performance
+        if (window.innerWidth < 768) {
+            // Optional: ensure elements are visible if we skip animation
+            // or just let them be handled by simple CSS or IntersectionObserver
+            return;
+        }
+
         this.animateElements();
     }
 

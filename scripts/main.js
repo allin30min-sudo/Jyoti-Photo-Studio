@@ -21,13 +21,42 @@ document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
 });
 
+// ===== Utility Functions (Hoisted) =====
+
+// Debounce function for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function for scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
 // ===== Navigation Functions =====
 function initNavigation() {
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Sticky navigation on scroll
-    window.addEventListener('scroll', function () {
+    // Sticky navigation on scroll - Throttled
+    const handleScroll = throttle(function () {
         scrollPosition = window.pageYOffset;
 
         if (scrollPosition > 100) {
@@ -36,9 +65,13 @@ function initNavigation() {
             navbar.classList.remove('scrolled');
         }
 
-        // Update parallax effect
-        updateParallax();
-    });
+        // Update parallax effect only if not on mobile/touch to save resources
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            updateParallax();
+        }
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Active link highlighting
     navLinks.forEach(link => {
@@ -105,9 +138,14 @@ function initHeroSlider() {
 
     // Start the slider
     setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+        // Optimize: verify logic needed here? Yes, but ensure valid DOM elements
+        if (slides[currentSlide]) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            if (slides[currentSlide]) {
+                slides[currentSlide].classList.add('active');
+            }
+        }
     }, SLIDE_INTERVAL);
 
     // Shutter effect on page load
@@ -124,7 +162,10 @@ function initScrollEffects() {
     // Reveal elements on scroll
     const revealElements = document.querySelectorAll('.section-reveal, .reveal-on-scroll');
 
-    function checkReveal() {
+    // Performance optimization: disconnect if no elements
+    if (revealElements.length === 0 && !document.querySelector('.scroll-indicator')) return;
+
+    const checkReveal = throttle(function () {
         const windowHeight = window.innerHeight;
         const revealPoint = 150;
 
@@ -135,9 +176,9 @@ function initScrollEffects() {
                 element.classList.add('revealed');
             }
         });
-    }
+    }, 200);
 
-    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('scroll', checkReveal, { passive: true });
     checkReveal(); // Initial check
 
     // Section-wise scroll with loop
@@ -156,8 +197,6 @@ function initScrollEffects() {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     return;
                 }
-                // If merely end of sections list but seemingly not bottom (e.g. footer), loop anyway or go to footer?
-                // Let's stick to simple looping for now as requested.
                 sectionIndex = 0;
                 window.scrollTo({
                     top: 0,
@@ -174,15 +213,17 @@ function initScrollEffects() {
             }
         });
 
-        // Ensure index stays synced if user scrolls manually
-        window.addEventListener('scroll', function () {
+        // Ensure index stays synced if user scrolls manually - Throttled
+        const syncIndex = throttle(function () {
             let currentScroll = window.scrollY + 100;
             allSections.forEach((section, index) => {
                 if (section.offsetTop <= currentScroll && (section.offsetTop + section.offsetHeight) > currentScroll) {
                     sectionIndex = index;
                 }
             });
-        });
+        }, 500);
+
+        window.addEventListener('scroll', syncIndex, { passive: true });
     }
 }
 
@@ -206,10 +247,11 @@ function initGalleryFilters() {
 
                 if (filter === 'all' || category === filter) {
                     item.style.display = 'block';
-                    setTimeout(() => {
+                    // Use requestAnimationFrame for smoother class addition
+                    requestAnimationFrame(() => {
                         item.style.opacity = '1';
                         item.style.transform = 'scale(1)';
-                    }, 10);
+                    });
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.9)';
@@ -262,7 +304,7 @@ function initSwiperSlider() {
 function initAOSAnimations() {
     const animatedElements = document.querySelectorAll('[data-aos]');
 
-    function checkAOS() {
+    const checkAOS = throttle(function () {
         const windowHeight = window.innerHeight;
         const triggerBottom = windowHeight * 0.8;
 
@@ -273,51 +315,58 @@ function initAOSAnimations() {
                 element.classList.add('aos-animate');
             }
         });
-    }
+    }, 150);
 
-    window.addEventListener('scroll', checkAOS);
+    window.addEventListener('scroll', checkAOS, { passive: true });
     checkAOS(); // Initial check
 }
 
 // ===== Parallax Effects =====
 function initParallaxEffects() {
+    // Only init if we have parallax elements
     const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
-
     if (parallaxElements.length > 0) {
-        window.addEventListener('scroll', updateParallax);
+        // We attach the listener in initNavigation or globally, but let's ensure it's not duplicated.
+        // The actual update function is called inside the throttled handleScroll in initNavigation.
+        // So we don't need another listener here.
     }
 }
 
 function updateParallax() {
     const scrolled = window.pageYOffset;
 
+    // Use transform3d for hardware acceleration
     document.querySelectorAll('.parallax-slow').forEach(element => {
-        element.style.transform = `translateY(${scrolled * 0.3}px)`;
+        element.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0)`;
     });
 
     document.querySelectorAll('.parallax-medium').forEach(element => {
-        element.style.transform = `translateY(${scrolled * 0.5}px)`;
+        element.style.transform = `translate3d(0, ${scrolled * 0.5}px, 0)`;
     });
 
     document.querySelectorAll('.parallax-fast').forEach(element => {
-        element.style.transform = `translateY(${scrolled * 0.7}px)`;
+        element.style.transform = `translate3d(0, ${scrolled * 0.7}px, 0)`;
     });
 }
 
 // ===== Mouse Move Effects (Bokeh & Elements) =====
-document.addEventListener('mousemove', function (e) {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+// Optimization: Disable on touch devices to prevent lag
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener('mousemove', throttle(function (e) {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
 
-    // Move bokeh elements based on mouse position
-    const bokehElements = document.querySelectorAll('.bokeh');
-    bokehElements.forEach((bokeh, index) => {
-        const speed = (index + 1) * 0.02;
-        const x = (mouseX - 0.5) * 50 * speed;
-        const y = (mouseY - 0.5) * 50 * speed;
-        bokeh.style.transform = `translate(${x}px, ${y}px)`;
-    });
-});
+        // Move bokeh elements based on mouse position
+        const bokehElements = document.querySelectorAll('.bokeh');
+        bokehElements.forEach((bokeh, index) => {
+            const speed = (index + 1) * 0.02;
+            const x = (mouseX - 0.5) * 50 * speed;
+            const y = (mouseY - 0.5) * 50 * speed;
+            // hardware accelerated transform
+            bokeh.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+    }, 50));
+}
 
 // ===== Button Ripple Effect =====
 document.querySelectorAll('.btn-ripple').forEach(button => {
@@ -354,18 +403,26 @@ function triggerCameraFlash() {
 function initLazyLoading() {
     const lazyImages = document.querySelectorAll('img[data-src]');
 
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
         });
-    });
 
-    lazyImages.forEach(img => imageObserver.observe(img));
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback or load all immediately
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+        });
+    }
 }
 
 // ===== Form Validation (For Contact/Booking Forms) =====
@@ -452,52 +509,6 @@ function showSuccessMessage(message) {
         successDiv.classList.remove('show');
         setTimeout(() => successDiv.remove(), 300);
     }, 3000);
-}
-
-// ===== Utility Functions =====
-
-// Debounce function for performance
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Throttle function for scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function () {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// ===== Performance Optimization =====
-
-// Optimize scroll events
-const optimizedScroll = throttle(function () {
-    // Scroll-based functions
-}, 100);
-
-window.addEventListener('scroll', optimizedScroll);
-
-// Preload critical images
-function preloadImages(urls) {
-    urls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-    });
 }
 
 // ===== Export functions for use in other modules =====
