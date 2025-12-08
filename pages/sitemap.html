@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - Jyoti Photo Studio</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <style>
+        .sitemap-container {
+            padding: 160px 0 80px;
+            min-height: 100vh;
+        }
+
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sitemap-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 169, 97, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition-base);
+        }
+
+        .sitemap-section:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-5px);
+        }
+
+        .sitemap-section h2 {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sitemap-links {
+            list-style: none;
+        }
+
+        .sitemap-links li {
+            margin-bottom: 1rem;
+        }
+
+        .sitemap-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-light);
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+        }
+
+        .sitemap-links a:hover {
+            color: var(--color-primary);
+            padding-left: 5px;
+        }
+
+        .sitemap-links i {
+            font-size: 0.8rem;
+            color: var(--color-primary);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <span class="logo-text">Jyoti <span class="logo-highlight">Photo Studio</span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="packages.html" class="nav-link">Packages</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:+918287852599" class="btn-icon"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/918287852599" target="_blank" class="btn-icon"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Sitemap Content -->
+    <div class="container sitemap-container">
+        <div class="text-center" data-aos="fade-up">
+            <h1 style="color: var(--color-primary); font-size: 3rem; margin-bottom: 1rem;">Site Map</h1>
+            <p style="color: var(--color-white); max-width: 600px; margin: 0 auto;">Explore the complete structure of
+                Jyoti Photo Studio website. Find what you are looking for easily.</p>
+        </div>
+
+        <div class="sitemap-grid">
+            <!-- Main Pages -->
+            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="100">
+                <h2><i class="fas fa-home"></i> Main Pages</h2>
+                <ul class="sitemap-links">
+                    <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Portfolio Gallery</a></li>
+                    <li><a href="packages.html"><i class="fas fa-chevron-right"></i> Pricing & Packages</a></li>
+                </ul>
+            </div>
+
+            <!-- Booking & Contact -->
+            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="200">
+                <h2><i class="fas fa-address-book"></i> Connect</h2>
+                <ul class="sitemap-links">
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <li><a href="https://wa.me/918287852599" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp
+                            Chat</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Detail -->
+            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="300">
+                <h2><i class="fas fa-camera-retro"></i> Service Categories</h2>
+                <ul class="sitemap-links">
+                    <li><a href="services.html?limit=wedding"><i class="fas fa-chevron-right"></i> Wedding
+                            Photography</a></li>
+                    <li><a href="services.html?limit=event"><i class="fas fa-chevron-right"></i> Event Coverage</a></li>
+                    <li><a href="services.html?limit=prewedding"><i class="fas fa-chevron-right"></i> Pre-Wedding
+                            Shoots</a></li>
+                    <li><a href="services.html?limit=commercial"><i class="fas fa-chevron-right"></i> Commercial &
+                            Portfolio</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal & Info -->
+            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="400">
+                <h2><i class="fas fa-info-circle"></i> Information</h2>
+                <ul class="sitemap-links">
+                    <li><a href="../sitemap.xml" target="_blank"><i class="fas fa-sitemap"></i> XML Sitemap (Bot)</a>
+                    </li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
