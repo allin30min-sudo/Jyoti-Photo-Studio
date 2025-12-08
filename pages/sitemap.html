@@ -10,84 +10,231 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/responsive.css">
     <style>
+        /* Sitemap Specific Premium Styles */
+        body {
+            background-color: var(--color-dark);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(201, 169, 97, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(201, 169, 97, 0.05) 0%, transparent 20%);
+            overflow-x: hidden;
+        }
+
+        .sitemap-header {
+            padding: 180px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .sitemap-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        .sitemap-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #cfaa66, #f7dfa5, #cfaa66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+            background-size: 200% auto;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .sitemap-desc {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         .sitemap-container {
-            padding: 160px 0 80px;
+            padding: 60px 0 120px;
             min-height: 100vh;
         }
 
         .sitemap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .sitemap-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(201, 169, 97, 0.1);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
+        .sitemap-card {
+            background: rgba(30, 30, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            /* managed by AOS */
+        }
+
+        .sitemap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .sitemap-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(201, 169, 97, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(201, 169, 97, 0.1);
+        }
+
+        .sitemap-card-icon {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            background: rgba(201, 169, 97, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 97, 0.2);
             transition: var(--transition-base);
         }
 
-        .sitemap-section:hover {
-            border-color: var(--color-primary);
-            box-shadow: var(--shadow-gold);
-            transform: translateY(-5px);
+        .sitemap-card:hover .sitemap-card-icon {
+            background: var(--color-gold);
+            color: var(--color-dark);
+            transform: rotateY(180deg);
         }
 
-        .sitemap-section h2 {
-            font-size: 1.5rem;
-            color: var(--color-gold);
+        .sitemap-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--color-white);
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .sitemap-links {
+        .sitemap-list {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .sitemap-links li {
+        .sitemap-list li {
             margin-bottom: 1rem;
-        }
-
-        .sitemap-links a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--color-light);
-            font-size: 1.1rem;
+            position: relative;
+            padding-left: 0;
             transition: var(--transition-fast);
         }
 
-        .sitemap-links a:hover {
-            color: var(--color-primary);
-            padding-left: 5px;
+        .sitemap-list a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
         }
 
-        .sitemap-links i {
+        .sitemap-list a:hover {
+            color: var(--color-gold);
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 18px;
+            transform: translateX(5px);
+        }
+
+        .sitemap-list i.link-icon {
             font-size: 0.8rem;
-            color: var(--color-primary);
-            opacity: 0.7;
+            opacity: 0.5;
+            transition: var(--transition-fast);
+        }
+
+        .sitemap-list a:hover i.link-icon {
+            opacity: 1;
+            color: var(--color-gold);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: auto;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-wrap {
+            display: flex;
+            width: 100%;
+        }
+
+        .tag-main {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .tag-hot {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            color: #fff;
+        }
+
+        .tag-new {
+            background: linear-gradient(to right, var(--color-primary), var(--color-gold));
+            color: var(--color-dark);
+        }
+
+        .tag-imp {
+            background: rgba(201, 169, 97, 0.2);
+            color: var(--color-gold);
+            border: 1px solid var(--color-gold);
+        }
+
+        /* Floating decoration */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--color-gold);
+            filter: blur(80px);
+            opacity: 0.08;
+            z-index: -1;
         }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar scanned" id="navbar">
         <div class="container nav-container">
             <div class="logo">
                 <i class="fas fa-camera"></i>
@@ -109,66 +256,141 @@
         </div>
     </nav>
 
+    <!-- Decoration -->
+    <div class="decoration-circle" style="width: 400px; height: 400px; top: -100px; left: -100px;"></div>
+    <div class="decoration-circle" style="width: 300px; height: 300px; bottom: 10%; right: -50px;"></div>
+
+    <!-- Header -->
+    <header class="sitemap-header container" data-aos="fade-down">
+        <h1 class="sitemap-title">Site Overview</h1>
+        <p class="sitemap-desc">Navigate through our premium photography services, portfolio, and information.
+            Everything you need, organized in one place.</p>
+    </header>
+
     <!-- Sitemap Content -->
     <div class="container sitemap-container">
-        <div class="text-center" data-aos="fade-up">
-            <h1 style="color: var(--color-primary); font-size: 3rem; margin-bottom: 1rem;">Site Map</h1>
-            <p style="color: var(--color-white); max-width: 600px; margin: 0 auto;">Explore the complete structure of
-                Jyoti Photo Studio website. Find what you are looking for easily.</p>
-        </div>
-
         <div class="sitemap-grid">
-            <!-- Main Pages -->
-            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="100">
-                <h2><i class="fas fa-home"></i> Main Pages</h2>
-                <ul class="sitemap-links">
-                    <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Home Page</a></li>
-                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
-                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Portfolio Gallery</a></li>
-                    <li><a href="packages.html"><i class="fas fa-chevron-right"></i> Pricing & Packages</a></li>
-                </ul>
-            </div>
 
-            <!-- Booking & Contact -->
-            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="200">
-                <h2><i class="fas fa-address-book"></i> Connect</h2>
-                <ul class="sitemap-links">
-                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                    <li><a href="https://wa.me/918287852599" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp
-                            Chat</a></li>
-                </ul>
-            </div>
-
-            <!-- Services Detail -->
-            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="300">
-                <h2><i class="fas fa-camera-retro"></i> Service Categories</h2>
-                <ul class="sitemap-links">
-                    <li><a href="services.html?limit=wedding"><i class="fas fa-chevron-right"></i> Wedding
-                            Photography</a></li>
-                    <li><a href="services.html?limit=event"><i class="fas fa-chevron-right"></i> Event Coverage</a></li>
-                    <li><a href="services.html?limit=prewedding"><i class="fas fa-chevron-right"></i> Pre-Wedding
-                            Shoots</a></li>
-                    <li><a href="services.html?limit=commercial"><i class="fas fa-chevron-right"></i> Commercial &
-                            Portfolio</a></li>
-                </ul>
-            </div>
-
-            <!-- Legal & Info -->
-            <div class="sitemap-section" data-aos="fade-up" data-aos-delay="400">
-                <h2><i class="fas fa-info-circle"></i> Information</h2>
-                <ul class="sitemap-links">
-                    <li><a href="../sitemap.xml" target="_blank"><i class="fas fa-sitemap"></i> XML Sitemap (Bot)</a>
+            <!-- Main Navigation -->
+            <div class="sitemap-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="sitemap-card-icon"><i class="fas fa-compass"></i></div>
+                <h2>Main Navigation</h2>
+                <ul class="sitemap-list">
+                    <li><a href="../index.html"><i class="fas fa-arrow-right link-icon"></i> Home Page <span
+                                class="tag tag-main">Main</span></a></li>
+                    <li><a href="about.html"><i class="fas fa-arrow-right link-icon"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-arrow-right link-icon"></i> Our Services <span
+                                class="tag tag-new">Premium</span></a></li>
+                    <li><a href="gallery.html"><i class="fas fa-arrow-right link-icon"></i> Portfolio Gallery</a></li>
+                    <li><a href="packages.html"><i class="fas fa-arrow-right link-icon"></i> Pricing & Packages</a></li>
+                    <li><a href="testimonials.html"><i class="fas fa-arrow-right link-icon"></i> Client Testimonials</a>
                     </li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
                 </ul>
             </div>
+
+            <!-- Service Categories -->
+            <div class="sitemap-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="sitemap-card-icon"><i class="fas fa-gem"></i></div>
+                <h2>Our Services</h2>
+                <ul class="sitemap-list">
+                    <li><a href="services.html?category=wedding"><i class="fas fa-rings link-icon"></i> Wedding
+                            Photography <span class="tag tag-hot">Hot</span></a></li>
+                    <li><a href="services.html?category=prewedding"><i class="fas fa-heart link-icon"></i> Pre-Wedding
+                            Shoots</a></li>
+                    <li><a href="services.html?category=events"><i class="fas fa-glass-cheers link-icon"></i> Event
+                            Coverage</a></li>
+                    <li><a href="services.html?category=films"><i class="fas fa-film link-icon"></i> Cinematic Films</a>
+                    </li>
+                    <li><a href="services.html?category=commercial"><i class="fas fa-briefcase link-icon"></i>
+                            Commercial/Ad Shoots</a></li>
+                    <li><a href="services.html?category=solutions"><i class="fas fa-magic link-icon"></i> A-Z Event
+                            Solutions</a></li>
+                </ul>
+            </div>
+
+            <!-- Connection Points -->
+            <div class="sitemap-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="sitemap-card-icon"><i class="fas fa-address-card"></i></div>
+                <h2>Connect With Us</h2>
+                <ul class="sitemap-list">
+                    <li><a href="contact.html"><i class="fas fa-envelope link-icon"></i> Contact Page <span
+                                class="tag tag-imp">Action</span></a></li>
+                    <li><a href="https://wa.me/918287852599" target="_blank"><i class="fab fa-whatsapp link-icon"></i>
+                            WhatsApp Chat</a></li>
+                    <li><a href="tel:+918287852599"><i class="fas fa-phone-alt link-icon"></i> Direct Call</a></li>
+                    <li><a href="https://maps.google.com/?q=Jyoti+Photo+Studio" target="_blank"><i
+                                class="fas fa-map-marker-alt link-icon"></i> Google Maps Location</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal & Misc -->
+            <div class="sitemap-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="sitemap-card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2>Information</h2>
+                <ul class="sitemap-list">
+                    <li><a href="../sitemap.xml" target="_blank"><i class="fas fa-code link-icon"></i> XML Sitemap</a>
+                    </li>
+                    <li><a href="../robots.txt" target="_blank"><i class="fas fa-robot link-icon"></i> Robots.txt</a>
+                    </li>
+                    <li><a href="#" style="opacity: 0.5; cursor: not-allowed;"><i class="fas fa-lock link-icon"></i>
+                            Privacy Policy (Soon)</a></li>
+                    <li><a href="#" style="opacity: 0.5; cursor: not-allowed;"><i
+                                class="fas fa-file-contract link-icon"></i> Terms of Service (Soon)</a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-camera"></i>
+                        <span>Jyoti <span class="logo-highlight">Photo Studio</span></span>
+                    </div>
+                    <p class="footer-desc">Professional photography and videography services for all occasions.
+                        Capturing moments with premium quality.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> <span>+91 82878 52599</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>subodmandal75@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jyoti Photo Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="../scripts/main.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+    </script>
 </body>
 
 </html>
