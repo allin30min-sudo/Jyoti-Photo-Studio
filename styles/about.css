@@ -1,0 +1,341 @@
+/* About Page - Premium Wedding Card Theme */
+:root {
+    --card-bg: #1a0f0f;
+    /* Deep reddish/brown dark for royal look */
+    --card-paper: #241515;
+    --gold-primary: #d4af37;
+    --gold-light: #f7dfa5;
+    --gold-dark: #aa8c2c;
+    --royal-red: #7b0d1e;
+}
+
+body {
+    background-color: var(--color-dark);
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    /* Subtle texture */
+}
+
+/* Typography */
+.font-script {
+    font-family: 'Great Vibes', 'Playfair Display', serif;
+    /* Fallback to Playfair if Great Vibes not loaded */
+    font-weight: 400;
+}
+
+/* Decorative Background */
+.royal-bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 85% 85%, rgba(123, 13, 30, 0.1) 0%, transparent 20%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Page Header */
+.about-header {
+    text-align: center;
+    padding: 160px 20px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-title-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 20px 60px;
+}
+
+.about-title-wrapper::before,
+.about-title-wrapper::after {
+    content: '✦';
+    font-size: 2rem;
+    color: var(--gold-primary);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.about-title-wrapper::before {
+    left: 0;
+}
+
+.about-title-wrapper::after {
+    right: 0;
+}
+
+.section-subtitle-script {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--gold-primary);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-title-royal {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #fff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* The Wedding Card Container */
+.royal-card-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.royal-card {
+    background: var(--card-paper);
+    border: 1px solid var(--gold-dark);
+    padding: 60px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    /* Slight rounded corners */
+    overflow: hidden;
+}
+
+/* Golden Border Frame */
+.royal-card::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid var(--gold-primary);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.royal-card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Corner Ornaments (CSS Shapes) */
+.corner-ornament {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2H30C45 2 50 15 50 30V50' stroke='%23d4af37' stroke-width='2'/%3E%3Cpath d='M2 2V30C2 45 15 50 30 50H50' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23d4af37'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.top-left {
+    top: 15px;
+    left: 15px;
+}
+
+.top-right {
+    top: 15px;
+    right: 15px;
+    transform: rotate(90deg);
+}
+
+.bottom-right {
+    bottom: 15px;
+    right: 15px;
+    transform: rotate(180deg);
+}
+
+.bottom-left {
+    bottom: 15px;
+    left: 15px;
+    transform: rotate(270deg);
+}
+
+/* Content sections */
+.card-section {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.card-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.card-section h2::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: radial-gradient(circle, var(--gold-primary) 0%, transparent 100%);
+    margin: 10px auto 0;
+}
+
+.card-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 4rem;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+    color: var(--gold-primary);
+    font-family: 'Playfair Display', serif;
+}
+
+/* Founder Profile */
+.founder-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.founder-img-frame {
+    width: 250px;
+    height: 300px;
+    border: 8px solid #1a0f0f;
+    outline: 2px solid var(--gold-primary);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.founder-img-frame:hover .founder-img {
+    transform: scale(1.05);
+}
+
+.founder-info {
+    text-align: left;
+    max-width: 400px;
+}
+
+.founder-name {
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.founder-role {
+    font-size: 1rem;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Mandala Decoration */
+.mandala-center {
+    width: 200px;
+    height: 200px;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0L110 90L200 100L110 110L100 200L90 110L0 100L90 90L100 0Z' fill='%23d4af37' fill-opacity='0.1'/%3E%3Ccircle cx='100' cy='100' r='50' stroke='%23d4af37' stroke-width='1' stroke-opacity='0.2'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto 30px;
+    animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .royal-card {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+
+    .royal-card::before {
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        bottom: 10px;
+    }
+
+    .corner-ornament {
+        transform: scale(0.6);
+    }
+
+    .top-left {
+        top: 5px;
+        left: 5px;
+    }
+
+    .top-right {
+        top: 5px;
+        right: 5px;
+    }
+
+    .bottom-right {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .bottom-left {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .main-title-royal {
+        font-size: 2.5rem;
+    }
+
+    .founder-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .founder-info {
+        text-align: center;
+    }
+}

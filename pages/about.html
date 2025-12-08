@@ -5,23 +5,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Jyoti Photo Studio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/about.css">
 </head>
 
 <body>
-    <div class="container" style="padding: 100px 20px; text-align: center; min-height: 80vh;">
-        <h1 style="color: var(--color-primary); margin-bottom: 2rem;">About Us Page</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">This page is under construction.</p>
-        <a href="../index.html" class="btn btn-primary"><i class="fas fa-home"></i> Back to Home</a>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar scanned" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <span class="logo-text">Jyoti <span class="logo-highlight">Photo Studio</span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="packages.html" class="nav-link">Packages</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="tel:+918287852599" class="btn-icon"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/918287852599" target="_blank" class="btn-icon"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Background Decoration -->
+    <div class="royal-bg-pattern"></div>
+
+    <!-- Header Content -->
+    <header class="about-header" data-aos="fade-down">
+        <div class="about-title-wrapper">
+            <span class="section-subtitle-script">The Story of</span>
+            <h1 class="main-title-royal">Jyoti Photo Studio</h1>
+        </div>
+        <p
+            style="color: var(--gold-primary); letter-spacing: 2px; margin-top: 10px; text-transform:uppercase; font-size: 0.9rem;">
+            Est. 1995 • New Delhi</p>
+    </header>
+
+    <!-- The Royal Card -->
+    <section class="royal-card-container">
+        <div class="royal-card" data-aos="zoom-in" data-aos-duration="1000">
+            <!-- Corner Ornaments -->
+            <div class="corner-ornament top-left"></div>
+            <div class="corner-ornament top-right"></div>
+            <div class="corner-ornament bottom-right"></div>
+            <div class="corner-ornament bottom-left"></div>
+
+            <!-- Mandala Decoration -->
+            <div class="mandala-center"></div>
+
+            <!-- Introduction -->
+            <div class="card-section">
+                <h2>A Legacy of Memories</h2>
+                <div class="card-text">
+                    <p>
+                        <span class="drop-cap">W</span>elcome to a world where moments are not just captured, but
+                        crafted into timeless masterpieces.
+                        At Jyoti Photo Studio, we believe that every photograph tells a story, every frame holds an
+                        emotion, and every click preserves a legacy.
+                        From the vibrant colors of an Indian wedding to the subtle elegance of a corporate portrait, we
+                        infuse passion and precision into every shot.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Founder Profile -->
+            <div class="card-section">
+                <h2>Meet The Artist</h2>
+                <div class="founder-profile">
+                    <div class="founder-img-frame">
+                        <!-- Placeholder for Founder Image -->
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80"
+                            alt="Subodh Mandal" class="founder-img">
+                    </div>
+                    <div class="founder-info">
+                        <h3 class="founder-name">Subodh Mandal</h3>
+                        <span class="founder-role">Lead Photographer & Director</span>
+                        <p class="card-text" style="text-align: left; margin: 0;">
+                            With over two decades of experience behind the lens, Subodh Mandal is not just a
+                            photographer but a visual storyteller.
+                            His vision was to create a studio that offers "A to Z" solutions without compromising on
+                            artistic quality.
+                            His dedication to the craft has made Jyoti Photo Studio a trusted name in Delhi's
+                            photography circuit.
+                        </p>
+                        <div style="margin-top: 20px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png"
+                                style="height: 40px; filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg);"
+                                alt="Signature">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Grid -->
+            <div class="card-section" style="margin-bottom: 0;">
+                <h2>Our Promise</h2>
+                <div class="card-text">
+                    <p>We don't just take photos; we create heirlooms.</p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+                    <div style="padding: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                        <i class="fas fa-gem"
+                            style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4 style="color: #fff; font-family: 'Playfair Display', serif;">Premium Quality</h4>
+                    </div>
+                    <div style="padding: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                        <i class="fas fa-video"
+                            style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4 style="color: #fff; font-family: 'Playfair Display', serif;">Cinematic Films</h4>
+                    </div>
+                    <div style="padding: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                        <i class="fas fa-heart"
+                            style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h4 style="color: #fff; font-family: 'Playfair Display', serif;">Personal Touch</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer" style="margin-top:auto;">
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -29,7 +155,8 @@
                         <i class="fas fa-camera"></i>
                         <span>Jyoti <span class="logo-highlight">Photo Studio</span></span>
                     </div>
-                    <p class="footer-desc">Professional photography and videography services for all occasions.</p>
+                    <p class="footer-desc">Professional photography and videography services for all occasions.
+                        Capturing moments with premium quality.</p>
                 </div>
 
                 <div class="footer-col">
@@ -56,6 +183,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
