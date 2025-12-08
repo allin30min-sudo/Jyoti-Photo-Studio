@@ -1,0 +1,213 @@
+/* ===================================
+   CONTACT PAGE STYLES
+   =================================== */
+
+/* Contact Hero */
+.contact-hero {
+    position: relative;
+    padding: 160px 0 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Container Layout */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    /* Info : Form */
+    gap: var(--spacing-xl);
+    align-items: start;
+    margin-bottom: var(--spacing-2xl);
+}
+
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    /* Reorder for mobile: Info first, then Map, then Form */
+    .contact-info-col {
+        order: 1;
+    }
+
+    .contact-form-col {
+        order: 2;
+    }
+}
+
+/* Contact Info Column */
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(201, 169, 97, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: var(--transition-base);
+}
+
+.info-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-primary);
+    transform: translateX(5px);
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-gold));
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-gold);
+}
+
+.info-content h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.info-content p,
+.info-content a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.info-content a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Mini Map */
+.map-container {
+    width: 100%;
+    height: 300px;
+    /* Mini map size */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-sm);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) invert(90%);
+    /* Dark mode map style */
+    transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+    filter: none;
+    /* Show colors on hover */
+}
+
+/* Contact Form Column */
+.contact-form-container {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form-header {
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+}
+
+.contact-form-header h2 {
+    font-size: 2rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-control {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 5px;
+    font-size: 1rem;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    transition: var(--transition-base);
+}
+
+.form-control:focus {
+    outline: none;
+    border-bottom-color: var(--color-primary);
+}
+
+.form-label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition-base);
+    pointer-events: none;
+}
+
+/* Floating Label Animation */
+.form-control:focus~.form-label,
+.form-control:not(:placeholder-shown)~.form-label {
+    top: -15px;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

@@ -303,9 +303,9 @@ Update in `index.html` footer section:
 ## 📞 Contact & Support
 
 **Studio Contact:**
-- 📱 Phone: +91 98765 43210
-- 📧 Email: info@jyotiphotostudio.com
-- 📍 Location: Mumbai, Maharashtra, India
+- 📱 Phone: +91 82878 52599
+- 📧 Email: subodmandal75@gmail.com
+- 📍 Location: A-125, Indra Kalyan Vihar, Okhla Ph.-2, New Delhi-20
 - ⏰ Hours: Mon-Sun, 9:00 AM - 9:00 PM
 
 **Social Media:**

@@ -143,7 +143,7 @@ function initBookingLogic() {
     if (confirmBtn) {
         confirmBtn.addEventListener('click', () => {
             const message = formatWhatsAppMessage();
-            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/918287852599?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
 
             modal.classList.remove('active');
@@ -193,7 +193,7 @@ function populateModal() {
 }
 
 function formatWhatsAppMessage() {
-    let msg = "Hi Jyoti Photo Studio, I am interested in booking the following services:\n\n";
+    let msg = "Hello Team Jyoti Photo Studio! I am interested in booking the following premium services:\n\n";
 
     // Use grouped set iteration to avoid duplicates if any
     const grouped = {};
